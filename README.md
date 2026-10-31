@@ -2,27 +2,26 @@
 
 A mobile-first, multi-sport sports information and statistical analysis platform.
 
-## First development build
-- Responsive dashboard and mobile navigation
-- Sports catalogue
-- Match-centre interface
-- Sport filtering and team search
-- Personal match watchlist
-- Team-analysis and model-report sections prepared for later data integration
+## Current frontend integration
+- Browser frontend connected to the Sports Intelligence AI Supabase project using its public publishable key.
+- Sports catalogue loads from `public.sports`.
+- Match centre loads match records from `public.matches`, with related teams and competitions.
+- Database-backed user sign-in/sign-up and personal match watchlist.
+- No fabricated fixtures or results are shown. Empty database tables display an explicit empty state.
+- Match data is read-only in the browser; verified data imports must be performed by trusted server-side functions.
+
+## Database
+The Supabase database contains the sports catalogue, competitions, seasons, teams, players, memberships, matches, events, statistics, team form, player statistics, data-source metadata, sync logs, user watchlists and neutral model evaluation records. Row Level Security is enabled on all public tables.
+
+## Security
+- Only the Supabase publishable key is present in browser code. It is designed for public clients.
+- Never place a Supabase secret/service-role key or sports-provider API key in frontend files.
+- Public match and catalogue data is read-only for browser users.
+- User watchlists are restricted by RLS to the signed-in owner.
+- Operational logs and internal model-evaluation tables are not exposed to browser users.
 
 ## Data accuracy
-All match names and fixture records in this starter build are illustrative placeholders. They are not live scores, verified results or real model outputs. Connect an authorized sports-data provider before displaying live information.
-
-## Planned technology
-- Frontend: HTML, CSS and JavaScript
-- Backend/database: Supabase and PostgreSQL
-- Secure server functions: Supabase Edge Functions
-- Charts: Chart.js
-- Statistical modelling: Python or JavaScript
-- Initial hosting: GitHub Pages
-
-## Preview
-Open `index.html` in a browser. No build step is required.
+A database connection does not mean live sports data is connected. Fixtures, results and statistics remain empty until an authorized sports-data provider is configured and data is imported. The interface displays only database records and does not label sample data as live.
 
 ## Deploy with GitHub Pages
 1. Open repository Settings.
@@ -30,15 +29,10 @@ Open `index.html` in a browser. No build step is required.
 3. Choose deployment from branch `main` and folder `/ (root)`.
 4. Save and wait for deployment.
 
-## Security
-Never put private API keys or Supabase service-role keys in browser JavaScript. Use secure server-side functions and database access policies.
+## Next steps
+1. Select an authorized sports-data provider and verify its coverage/licensing.
+2. Store its API credential as a Supabase Edge Function secret.
+3. Implement scheduled server-side imports with data-source attribution and sync logs.
+4. Add neutral performance analysis and evaluate it on held-out completed matches.
 
-## Roadmap
-1. Connect a suitable authorized sports-data provider.
-2. Create Supabase schema and access policies.
-3. Add verified fixtures, results and live match events.
-4. Build football and volleyball statistics.
-5. Develop and evaluate statistical models using held-out historical matches.
-6. Add more sports in independent modules.
-
-The platform is for sports information, performance analysis and educational statistical estimates. It does not provide betting tips, betting slips or guaranteed outcomes.
+The platform is for sports information, performance analysis and educational statistical research. It does not provide betting tips, betting slips or guaranteed outcomes.
