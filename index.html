@@ -18,18 +18,18 @@
   <div class="side-foot">● Demo interface · no live feed connected</div>
 </aside>
 <main class="main">
-<header class="topbar"><button class="menu" id="menu">☰</button><div><small>GLOBAL SPORTS PLATFORM</small><h1 id="heading">Overview</h1></div><span class="demo">STARTER BUILD</span></header>
-<div class="notice"><b>Demo data:</b> This first build uses sample interface records only. It does not show live scores or verified match predictions. Real sports data will be connected in a later stage.</div>
+<header class="topbar"><button class="menu" id="menu">☰</button><div><small>GLOBAL SPORTS PLATFORM</small><h1 id="heading">Overview</h1></div><span class="demo" id="connectionBadge">CONNECTING…</span><div class="auth-actions"><span id="authStatus">Signed out</span><button id="authOpen" class="link">Sign in</button><button id="signOut" class="link" hidden>Sign out</button></div></header>
+<div class="notice" id="connectionNotice"><b>Connecting to Supabase…</b> Checking the sports catalogue and match records. Only records stored in your database will be shown; no sample fixtures are used.</div><section class="auth-panel" id="authPanel" hidden><h3>Account access</h3><p>Sign in to save your personal match watchlist.</p><form id="authForm"><input id="authEmail" type="email" placeholder="Email address" autocomplete="email" required><input id="authPassword" type="password" placeholder="Password (at least 6 characters)" autocomplete="current-password" minlength="6" required><div class="auth-buttons"><button class="primary" type="submit" id="authSubmit">Sign in</button><button class="link" type="button" id="authMode">Create account</button></div></form><p id="authMessage" role="status"></p></section>
 <section class="view active" id="overview">
   <div class="hero"><div><small>YOUR SPORTS INTELLIGENCE HUB</small><h2>Understand the game.<br><em>Analyse the evidence.</em></h2><p>Explore sports, compare team performance and follow match information in one place.</p></div><div class="orb">AI</div></div>
   <div class="stats">
-    <article><small>Sports planned</small><strong>10+</strong><span>Expandable coverage</span></article>
-    <article><small>Connected data sources</small><strong>0</strong><span>Integration pending</span></article>
+    <article><small>Sports in database</small><strong id="sportsCount">—</strong><span>Loaded from Supabase</span></article>
+    <article><small>Data providers</small><strong id="sourcesCount">—</strong><span>Configured sources</span></article>
     <article><small>Saved matches</small><strong id="savedCount">0</strong><span>Your watchlist</span></article>
-    <article><small>Model accuracy</small><strong>—</strong><span>Awaiting verified tests</span></article>
+    <article><small>Completed matches</small><strong id="completedCount">—</strong><span>Database records</span></article>
   </div>
   <div class="section-title"><div><small>EXPLORE</small><h2>Sports catalogue</h2></div></div>
-  <div class="sports">
+  <div class="sports" id="sportsCatalogue"><div class="empty">Loading sports catalogue…</div></div>
     <button class="sport chosen" data-sport="Football"><span>⚽</span><b>Football</b><small>Goals · teams · leagues</small></button>
     <button class="sport" data-sport="Volleyball"><span>🏐</span><b>Volleyball</b><small>Sets · points · teams</small></button>
     <button class="sport" data-sport="Basketball"><span>🏀</span><b>Basketball</b><small>Points · quarters</small></button>
@@ -54,4 +54,4 @@
 <section class="view" id="watchlist"><div class="section-title"><div><small>SAVED MATCHES</small><h2>My watchlist</h2><p>Keep track of matches you want to review.</p></div></div><div id="savedMatches" class="match-list"></div></section>
 <section class="view" id="reports"><div class="section-title"><div><small>MODEL EVALUATION</small><h2>Model reports</h2><p>Performance reports will be based on recorded estimates and verified final results.</p></div></div><div class="empty"><h3>Evaluation not started</h3><p>First connect reliable sports data. Then test models on matches not used during training and report sample size, accuracy and calibration.</p></div></section>
 <footer>SPORTS INTELLIGENCE AI · EARLY DEVELOPMENT BUILD</footer>
-</main></div><script src="js/app.js"></script></body></html>
+</main></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js"></script><script src="js/supabase.js"></script><script src="js/app.js"></script></body></html>
