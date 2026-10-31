@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><title>Sports Intelligence AI</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#"><span class="mark">SI</span><span>SPORTS<br><b>INTELLIGENCE AI</b></span></a>
+  <p class="nav-label">WORKSPACE</p>
+  <button class="nav active" data-view="overview">⌂ <span>Overview</span></button>
+  <button class="nav" data-view="matches">◉ <span>Match centre</span></button>
+  <button class="nav" data-view="analysis">⌁ <span>Team analysis</span></button>
+  <button class="nav" data-view="watchlist">☆ <span>Watchlist</span></button>
+  <button class="nav" data-view="reports">▤ <span>Model reports</span></button>
+  <div class="side-foot">● Demo interface · no live feed connected</div>
+</aside>
+<main class="main">
+<header class="topbar"><button class="menu" id="menu">☰</button><div><small>GLOBAL SPORTS PLATFORM</small><h1 id="heading">Overview</h1></div><span class="demo">STARTER BUILD</span></header>
+<div class="notice"><b>Demo data:</b> This first build uses sample interface records only. It does not show live scores or verified match predictions. Real sports data will be connected in a later stage.</div>
+<section class="view active" id="overview">
+  <div class="hero"><div><small>YOUR SPORTS INTELLIGENCE HUB</small><h2>Understand the game.<br><em>Analyse the evidence.</em></h2><p>Explore sports, compare team performance and follow match information in one place.</p></div><div class="orb">AI</div></div>
+  <div class="stats">
+    <article><small>Sports planned</small><strong>10+</strong><span>Expandable coverage</span></article>
+    <article><small>Connected data sources</small><strong>0</strong><span>Integration pending</span></article>
+    <article><small>Saved matches</small><strong id="savedCount">0</strong><span>Your watchlist</span></article>
+    <article><small>Model accuracy</small><strong>—</strong><span>Awaiting verified tests</span></article>
+  </div>
+  <div class="section-title"><div><small>EXPLORE</small><h2>Sports catalogue</h2></div></div>
+  <div class="sports">
+    <button class="sport chosen" data-sport="Football"><span>⚽</span><b>Football</b><small>Goals · teams · leagues</small></button>
+    <button class="sport" data-sport="Volleyball"><span>🏐</span><b>Volleyball</b><small>Sets · points · teams</small></button>
+    <button class="sport" data-sport="Basketball"><span>🏀</span><b>Basketball</b><small>Points · quarters</small></button>
+    <button class="sport" data-sport="Tennis"><span>🎾</span><b>Tennis</b><small>Sets · games · players</small></button>
+    <button class="sport" data-sport="Handball"><span>🤾</span><b>Handball</b><small>Goals · halves</small></button>
+    <button class="sport" data-sport="Cricket"><span>🏏</span><b>Cricket</b><small>Runs · wickets</small></button>
+  </div>
+  <div class="section-title"><div><small>INTERFACE PREVIEW</small><h2>Match centre</h2></div><button class="link" data-open="matches">View match centre →</button></div>
+  <div id="overviewMatches" class="match-list"></div>
+</section>
+<section class="view" id="matches">
+  <div class="section-title"><div><small>MATCH TRACKING</small><h2>Match centre</h2><p>Live scores will be displayed after a verified data provider is connected.</p></div></div>
+  <div class="filters"><select id="sportFilter"><option>All sports</option><option>Football</option><option>Volleyball</option><option>Basketball</option></select><input id="search" placeholder="Search teams or competition"></div>
+  <div id="allMatches" class="match-list"></div>
+</section>
+<section class="view" id="analysis">
+  <div class="section-title"><div><small>PERFORMANCE INTELLIGENCE</small><h2>Team analysis</h2><p>Analysis will use verified historical and current statistics.</p></div></div>
+  <div class="columns"><article class="panel"><h3>Team comparison</h3><label>Team A<input disabled placeholder="Team selection after data integration"></label><label>Team B<input disabled placeholder="Team selection after data integration"></label><button class="primary" disabled>Analyse teams</button></article>
+  <article class="panel"><h3>Analysis factors</h3><ul><li>Goals scored and conceded</li><li>Expected goals and chances created</li><li>Home and away performance</li><li>Defensive and attacking trends</li><li>Player availability</li><li>Head-to-head history</li></ul></article></div>
+  <div class="notice secondary"><b>Important:</b> Sports outcomes cannot be guaranteed. Any future model estimates will include uncertainty and be tested against completed matches.</div>
+</section>
+<section class="view" id="watchlist"><div class="section-title"><div><small>SAVED MATCHES</small><h2>My watchlist</h2><p>Keep track of matches you want to review.</p></div></div><div id="savedMatches" class="match-list"></div></section>
+<section class="view" id="reports"><div class="section-title"><div><small>MODEL EVALUATION</small><h2>Model reports</h2><p>Performance reports will be based on recorded estimates and verified final results.</p></div></div><div class="empty"><h3>Evaluation not started</h3><p>First connect reliable sports data. Then test models on matches not used during training and report sample size, accuracy and calibration.</p></div></section>
+<footer>SPORTS INTELLIGENCE AI · EARLY DEVELOPMENT BUILD</footer>
+</main></div><script src="js/app.js"></script></body></html>
