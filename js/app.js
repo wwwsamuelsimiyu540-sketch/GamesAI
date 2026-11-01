@@ -223,10 +223,11 @@ el("authForm").addEventListener("submit",async event => {
 
 async function startApp() {
   try {
-    setConnection("CONNECTED", "<b>Database connected:</b> Sports catalogue and match centre are reading directly from Supabase. Only saved database records are displayed; no demo fixtures are inserted.");
+    setConnection("CHECKING", "<b>Checking database:</b> Verifying the sports catalogue, match records and account session.");
     await loadCatalogue();
     await loadMatches();
     await updateAuthUI();
+    setConnection("CONNECTED · DATABASE ONLY", "<b>Supabase connected:</b> Database reads succeeded. This does not mean a live sports feed is connected; fixtures appear only after a data provider imports verified records.");
     db().auth.onAuthStateChange(() => setTimeout(() => updateAuthUI().catch(err => console.error(err)),0));
   } catch (error) {
     console.error("Supabase connection error:",error);
